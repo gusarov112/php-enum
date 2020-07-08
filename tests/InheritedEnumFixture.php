@@ -1,12 +1,10 @@
 <?php
 
-namespace MyCLabs\Tests\Enum;
+namespace Gusarov112\Tests\Enum;
 
 /**
  * Class InheritedEnumFixture.
- * @package MyCLabs\Tests\Enum
- *
- * @method static InheritedEnumFixture VALUE()
+ * @package Gusarov112\Tests\Enum
  */
 class InheritedEnumFixture extends EnumFixture
 {
