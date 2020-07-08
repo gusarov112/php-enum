@@ -1,6 +1,6 @@
 <?php
 
-namespace MyCLabs\Enum\PHPUnit;
+namespace Gusarov112\Enum\PHPUnit;
 
 use MyCLabs\Enum\Enum;
 use SebastianBergmann\Comparator\ComparisonFailure;
