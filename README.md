@@ -1,12 +1,5 @@
 # PHP Enum implementation inspired from SplEnum
 
-[![Build Status](https://travis-ci.org/myclabs/php-enum.png?branch=master)](https://travis-ci.org/myclabs/php-enum)
-[![Latest Stable Version](https://poser.pugx.org/myclabs/php-enum/version.png)](https://packagist.org/packages/myclabs/php-enum)
-[![Total Downloads](https://poser.pugx.org/myclabs/php-enum/downloads.png)](https://packagist.org/packages/myclabs/php-enum)
-[![psalm](https://shepherd.dev/github/myclabs/php-enum/coverage.svg)](https://shepherd.dev/github/myclabs/php-enum)
-
-Maintenance for this project is [supported via Tidelift](https://tidelift.com/subscription/pkg/packagist-myclabs-php-enum?utm_source=packagist-myclabs-php-enum&utm_medium=referral&utm_campaign=readme).
-
 ## Why?
 
 First, and mainly, `SplEnum` is not integrated to PHP, you have to install the extension separately.
@@ -24,13 +17,13 @@ This Enum class is not intended to replace class constants, but only to be used 
 ## Installation
 
 ```
-composer require myclabs/php-enum
+composer require gusarov112/php-enum
 ```
 
 ## Declaration
 
 ```php
-use MyCLabs\Enum\Enum;
+use Gusarov112\Enum\Enum;
 
 /**
  * Action enum
