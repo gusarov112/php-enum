@@ -1,10 +1,10 @@
 <?php
 /**
- * @link    http://github.com/myclabs/php-enum
- * @license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
+ * @link    https://github.com/gusarov112/php-enum
+ * @license https://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
 
-namespace MyCLabs\Tests\Enum;
+namespace Gusarov112\Tests\Enum;
 
 /**
  * @author Matthieu Napoli <matthieu@mnapoli.fr>
@@ -136,26 +136,6 @@ class EnumTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * __callStatic()
-     */
-    public function testStaticAccess()
-    {
-        $this->assertEquals(new EnumFixture(EnumFixture::FOO), EnumFixture::FOO());
-        $this->assertEquals(new EnumFixture(EnumFixture::BAR), EnumFixture::BAR());
-        $this->assertEquals(new EnumFixture(EnumFixture::NUMBER), EnumFixture::NUMBER());
-    }
-
-    /**
-     * @expectedException \BadMethodCallException
-     * @expectedExceptionMessage No static method or enum constant 'UNKNOWN' in class
-     *                           UnitTest\MyCLabs\Enum\Enum\EnumFixture
-     */
-    public function testBadStaticAccess()
-    {
-        EnumFixture::UNKNOWN();
-    }
-
-    /**
      * isValid()
      * @dataProvider isValidProvider
      */
@@ -255,7 +235,7 @@ class EnumTest extends \PHPUnit\Framework\TestCase
      */
     public function testEqualsConflictValues()
     {
-        $this->assertFalse(EnumFixture::FOO()->equals(EnumConflict::FOO()));
+        $this->assertFalse((new EnumFixture(EnumFixture::FOO))->equals(new EnumConflict(EnumConflict::FOO)));
     }
 
     /**
@@ -274,14 +254,12 @@ class EnumTest extends \PHPUnit\Framework\TestCase
 
     public function testNullableEnum()
     {
-        $this->assertNull(EnumFixture::PROBLEMATIC_NULL()->getValue());
         $this->assertNull((new EnumFixture(EnumFixture::PROBLEMATIC_NULL))->getValue());
         $this->assertNull((new EnumFixture(EnumFixture::PROBLEMATIC_NULL))->jsonSerialize());
     }
 
     public function testBooleanEnum()
     {
-        $this->assertFalse(EnumFixture::PROBLEMATIC_BOOLEAN_FALSE()->getValue());
         $this->assertFalse((new EnumFixture(EnumFixture::PROBLEMATIC_BOOLEAN_FALSE))->jsonSerialize());
     }
 
@@ -305,7 +283,7 @@ class EnumTest extends \PHPUnit\Framework\TestCase
         $bin = '4f3a33303a224d79434c6162735c54657374735c456e756d5c456e756d4669787'.
             '4757265223a313a7b733a383a22002a0076616c7565223b733a333a22666f6f223b7d';
 
-        $this->assertEquals($bin, bin2hex(serialize(EnumFixture::FOO())));
+        $this->assertEquals($bin, bin2hex(serialize(new EnumFixture(EnumFixture::FOO))));
     }
 
     public function testUnserialize()
@@ -318,7 +296,7 @@ class EnumTest extends \PHPUnit\Framework\TestCase
         $value = unserialize(pack('H*', $bin));
 
         $this->assertEquals(EnumFixture::FOO, $value->getValue());
-        $this->assertTrue(EnumFixture::FOO()->equals($value));
+        $this->assertTrue(new (EnumFixture(EnumFixture::FOO))->equals($value));
     }
 
     /**
@@ -328,7 +306,7 @@ class EnumTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(\UnexpectedValueException::class);
         $this->expectExceptionMessage("Value 'value' is not part of the enum MyCLabs\Tests\Enum\EnumFixture");
-        $inheritedEnumFixture = InheritedEnumFixture::VALUE();
+        $inheritedEnumFixture = new InheritedEnumFixture(InheritedEnumFixture::VALUE);
         new EnumFixture($inheritedEnumFixture);
     }
 }
