@@ -45,15 +45,9 @@ class Action extends Enum
 ## Usage
 
 ```php
-$action = Action::VIEW();
+$action = new Action(Action::VIEW);
 
-// or with a dynamic key:
-$action = Action::$key();
-// or with a dynamic value:
-$action = new Action($value);
 ```
-
-As you can see, static methods are automatically implemented to provide quick access to an enum value.
 
 One advantage over using class constants is to be able to use an enum as a parameter type:
 
@@ -92,38 +86,6 @@ class Action extends Enum
 // Static method:
 $action = Action::VIEW();
 $action = Action::EDIT();
-```
-
-Static method helpers are implemented using [`__callStatic()`](http://www.php.net/manual/en/language.oop5.overloading.php#object.callstatic).
-
-If you care about IDE autocompletion, you can either implement the static methods yourself:
-
-```php
-class Action extends Enum
-{
-    private const VIEW = 'view';
-
-    /**
-     * @return Action
-     */
-    public static function VIEW() {
-        return new Action(self::VIEW);
-    }
-}
-```
-
-or you can use phpdoc (this is supported in PhpStorm for example):
-
-```php
-/**
- * @method static Action VIEW()
- * @method static Action EDIT()
- */
-class Action extends Enum
-{
-    private const VIEW = 'view';
-    private const EDIT = 'edit';
-}
 ```
 
 ## Related projects
