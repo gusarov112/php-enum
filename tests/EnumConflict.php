@@ -1,7 +1,7 @@
 <?php
 /**
- * @link    http://github.com/gusarov112/php-enum
- * @license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
+ * @link    https://github.com/gusarov112/php-enum
+ * @license https://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
 namespace Gusarov112\Tests\Enum;
 
