@@ -74,19 +74,6 @@ Static methods:
 - `isValidKey()` Check if tested key is valid on enum set
 - `search()` Return key for searched value
 
-### Static methods
-
-```php
-class Action extends Enum
-{
-    private const VIEW = 'view';
-    private const EDIT = 'edit';
-}
-
-// Static method:
-$action = Action::VIEW();
-$action = Action::EDIT();
-```
 
 ## Related projects
 
