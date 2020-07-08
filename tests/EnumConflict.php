@@ -1,17 +1,14 @@
 <?php
 /**
- * @link    http://github.com/myclabs/php-enum
+ * @link    http://github.com/gusarov112/php-enum
  * @license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
-namespace MyCLabs\Tests\Enum;
+namespace Gusarov112\Tests\Enum;
 
-use MyCLabs\Enum\Enum;
+use Gusarov112\Enum\Enum;
 
 /**
  * Class EnumConflict
- *
- * @method static EnumConflict FOO()
- * @method static EnumConflict BAR()
  *
  * @author Daniel Costa <danielcosta@gmail.com>
  * @author Mirosław Filip <mirfilip@gmail.com>
