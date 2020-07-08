@@ -1,3 +1,3 @@
 <?php
 
-\SebastianBergmann\Comparator\Factory::getInstance()->register(new \MyCLabs\Enum\PHPUnit\Comparator());
+\SebastianBergmann\Comparator\Factory::getInstance()->register(new \Gusarov112\Enum\PHPUnit\Comparator());
