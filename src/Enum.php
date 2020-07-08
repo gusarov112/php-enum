@@ -1,10 +1,10 @@
 <?php
 /**
- * @link    http://github.com/myclabs/php-enum
+ * @link    https://github.com/gusarov112/php-enum
  * @license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
 
-namespace MyCLabs\Enum;
+namespace Gusarov112\Enum;
 
 /**
  * Base Enum class
@@ -14,6 +14,7 @@ namespace MyCLabs\Enum;
  * @author Matthieu Napoli <matthieu@mnapoli.fr>
  * @author Daniel Costa <danielcosta@gmail.com>
  * @author Mirosław Filip <mirfilip@gmail.com>
+ * @author Anatolii Husarov <gusar.atm@gmail.com>
  *
  * @psalm-template T
  * @psalm-immutable
@@ -202,26 +203,6 @@ abstract class Enum implements \JsonSerializable
     public static function search($value)
     {
         return \array_search($value, static::toArray(), true);
-    }
-
-    /**
-     * Returns a value when called statically like so: MyEnum::SOME_VALUE() given SOME_VALUE is a class constant
-     *
-     * @param string $name
-     * @param array  $arguments
-     *
-     * @return static
-     * @psalm-pure
-     * @throws \BadMethodCallException
-     */
-    public static function __callStatic($name, $arguments)
-    {
-        $array = static::toArray();
-        if (isset($array[$name]) || \array_key_exists($name, $array)) {
-            return new static($array[$name]);
-        }
-
-        throw new \BadMethodCallException("No static method or enum constant '$name' in class " . static::class);
     }
 
     /**
