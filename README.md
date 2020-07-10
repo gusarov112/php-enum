@@ -16,7 +16,19 @@ This Enum class is not intended to replace class constants, but only to be used 
 
 ## Installation
 
+Add github repository to composer.json
+```json
+
+   "repositories":[
+        ...
+        {
+            "type": "vcs",
+            "url": "git@github.com:gusarov112/php-enum.git"
+        }
+    ],
 ```
+Than require package
+```bash
 composer require gusarov112/php-enum
 ```
 
