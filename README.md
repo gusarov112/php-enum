@@ -16,18 +16,6 @@ This Enum class is not intended to replace class constants, but only to be used 
 
 ## Installation
 
-Add github repository to composer.json
-```json
-
-   "repositories":[
-        ...
-        {
-            "type": "vcs",
-            "url": "git@github.com:gusarov112/php-enum.git"
-        }
-    ],
-```
-Than require package
 ```bash
 composer require gusarov112/php-enum
 ```
@@ -79,9 +67,3 @@ Static methods:
 - `isValidKey()` Check if tested key is valid on enum set
 - `search()` Return key for searched value
 
-
-## Related projects
-
-- [Doctrine enum mapping](https://github.com/acelaya/doctrine-enum-type)
-- [Symfony ParamConverter integration](https://github.com/Ex3v/MyCLabsEnumParamConverter)
-- [PHPStan integration](https://github.com/timeweb/phpstan-enum)
